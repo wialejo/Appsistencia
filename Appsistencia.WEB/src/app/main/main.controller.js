@@ -8,8 +8,15 @@
   /** @ngInject */
   function MainController($timeout, webDevTec, toastr, authService, $location) {
     var vm = this;
-
     vm.authentication = authService.authentication;
+
+    vm.logOut = function () {
+        authService.logOut();
+        $location.path('/access/login');
+    }
+    if (!vm.authentication.isAuth) {
+        $location.path('/access/login');
+    }
 
     // config
     vm.app = {
@@ -38,13 +45,5 @@
         container: false
       }
     }
-
-    vm.logOut = function () {
-      authService.logOut();
-      $location.path('/access/login');
-    }
-    // if (!vm.authentication.isAuth) {
-    //   $location.path('/access/login');
-    // }
   }
 })();

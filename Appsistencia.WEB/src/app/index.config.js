@@ -18,10 +18,19 @@
     toastrConfig.progressBar = true;
   }
 
-  angular
-    .module('appsistencia')
+  angular.module('appsistencia')
     .constant('ngAuthSettings',  {
       apiServiceBaseUri: "http://" + window.location.hostname + "/API/",
       clientId: 'ngAuthApp'
     });
+
+    angular.module('appsistencia')
+      .config(function ($httpProvider) {
+          $httpProvider.interceptors.push('authInterceptorService');
+      });
+
+    angular.module('appsistencia')
+      .run(function (authService) {
+          authService.fillAuthData();
+      });
 })();

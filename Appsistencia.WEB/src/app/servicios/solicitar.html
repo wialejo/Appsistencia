@@ -1,0 +1,77 @@
+﻿<div class="container" ng-controller="SolicitarController as vm">
+    Bienvenido, {{vm.servicio.cliente.nombre}}
+    <hr />
+    <div ng-if="!vm.verFormularioDatosBasicos">
+        Seleccione el tipo de asistencia
+        <div ng-repeat="tipoServicio in vm.tiposServicio">
+            <button class="btn btn-default" ng-click="vm.solicitarDatosBasicos(tipoServicio)"> {{ tipoServicio.descripcion }} </button>
+        </div>
+    </div>
+
+    <div ng-if="vm.verFormularioDatosBasicos">
+        <form ng-submit="vm.solicitarServicio()">
+
+            <div ng-if="vm.tipoServicioSeleccionado.codigo == 'CE'">
+                <div class="form-group">
+                    <label for="txtHora">Hora</label>
+                    <input ng-model="vm.servicio.hora" type="text" class="form-control" id="txtHora" placeholder="hh:mm">
+                </div>
+                <div class="form-group">
+                    <label for="txtFecha">Fecha</label>
+                    <input ng-model="vm.servicio.fecha" type="text" class="form-control" id="txtFecha" placeholder="dd/mm/aa">
+                </div>
+                <hr />
+                <h4>Direcciones relacionadas</h4>
+                <ul ng-repeat="direccion in vm.servicio.cliente.direcciones" ng-click="vm.seleccionarDireccionInicio(direccion, $index)">
+                    <li>{{direccion.descripcion}} - {{direccion.ciudad}}</li>
+                </ul>
+                <div class="form-group">
+                    <label for="txtDireccion">Dirección origen</label>
+                    <input ng-model="vm.servicio.direccionInicio.descripcion" type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
+                </div>
+                <br />
+                <hr />
+                <h4>Direcciones asociadas</h4>
+                <ul ng-repeat="direccion in vm.servicio.cliente.direcciones" ng-click="vm.seleccionarDireccionDestino(direccion, $index)">
+                    <li>{{direccion.descripcion}} - {{direccion.ciudad}}</li>
+                </ul>
+                <div class="form-group">
+                    <label for="txtDireccionDestino">Dirección destino</label>
+                    <input ng-model="vm.servicio.direccionDestino.descripcion" type="text" class="form-control" id="txtDireccionDestino" placeholder="Dirección">
+                </div>
+            </div>
+
+
+            <div ng-if="vm.tipoServicioSeleccionado.codigo != 'CE'">
+                <div class="form-group">
+                    <label for="txtDireccion">Dirección</label>
+                    <input ng-model="vm.servicio.direccionInicio.descripcion" type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtMail">Email</label>
+                <input ng-model="vm.servicio.cliente.email" type="email" class="form-control" id="txtMail" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="txtTelefono">Teléfono</label>
+                <input ng-model="vm.servicio.cliente.telefono" type="text" class="form-control" id="txtTelefono" placeholder="Teléfono">
+            </div>
+
+            <!--vehiculo-->
+            <strong>Vehiculos relacionados</strong>
+            <ul ng-repeat="vehiculo in vm.servicio.cliente.vehiculos" ng-click="vm.seleccionarVehiculo(vehiculo, $index)">
+                <li>{{vehiculo.placa}} - {{vehiculo.referencia}}</li>
+            </ul>
+            <div class="form-group">
+                <label for="txtPlaca">Placa</label>
+                <input ng-model="vm.servicio.vehiculo.placa" type="text" class="form-control" id="txtPlaca" placeholder="Placa">
+            </div>
+            <div class="form-group">
+                <label for="txtVehiculo">Vehiculo</label>
+                <input ng-model="vm.servicio.vehiculo.referencia" type="text" class="form-control" id="txtVehiculo" placeholder="Marca, modelo o referencia">
+            </div>
+            <button type="submit" class="btn btn-primary">Solicitar</button>
+            <button ng-click="vm.verFormularioDatosBasicos = false" class="btn btn-danger">Atras</button>
+        </form>
+    </div>
+</div>

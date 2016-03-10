@@ -13,7 +13,7 @@
             vm.message = "";
             vm.login = function () {
                 authService.login(vm.loginData).then(function () {
-                    $location.path('/app');
+                    $location.path('/');
                 },
                  function (err) {
                      vm.message = err.error_description;

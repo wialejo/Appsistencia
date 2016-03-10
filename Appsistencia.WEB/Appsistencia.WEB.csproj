@@ -76,6 +76,7 @@
     <Content Include="package.json" />
     <Content Include="gulp\.eslintrc" />
     <Content Include="e2e\.eslintrc" />
+    <Content Include="src\app\cliente\cliente.service.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -123,9 +124,12 @@
     <Content Include="src\app\index.route.js" />
     <Content Include="src\app\index.run.js" />
     <Content Include="src\app\main\main.controller.js" />
-    <Content Include="src\app\main\main.controller.spec.js" />
     <Content Include="src\app\main\main.html" />
-    <Content Include="src\app\servicios\seleccionTipo.html" />
+    <Content Include="src\app\servicios\solicitar.html" />
+    <Content Include="src\app\servicios\tipoServicio.service.js" />
+    <Content Include="src\app\servicios\servicios.service.js" />
+    <Content Include="src\app\servicios\solicitar.controller.js" />
+    <Content Include="src\app\utilidades\fecha.service.js" />
     <Content Include="src\assets\images\angular.png" />
     <Content Include="src\assets\images\bootstrap.png" />
     <Content Include="src\assets\images\browsersync.png" />
