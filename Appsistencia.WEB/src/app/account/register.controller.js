@@ -10,7 +10,8 @@
             vm.registration = {
                 userName: "",
                 password: "",
-                confirmPassword: ""
+                confirmPassword: "",
+                nombre: ""
             };
 
             vm.signUp = function () {

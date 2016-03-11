@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(Appsistencia.Core.Startup))]
+[assembly: OwinStartup(typeof(Appsistencia.API.Startup))]
 
-namespace Appsistencia.Core
+namespace Appsistencia.API
 {
     public partial class Startup
     {

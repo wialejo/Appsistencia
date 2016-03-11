@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Autofac.Core;
 using Autofac.Integration.WebApi;
-using Appsistencia.Core.Infraestructura;
-using Appsistencia.Core.Modelos;
+using Appsistencia.API.Infraestructura;
+using Appsistencia.API.Modelos;
 using Appsistencia.CORE.Modelos;
 using Appsistencia.CORE.Repositorios;
 using Appsistencia.CORE.Services;
@@ -16,7 +16,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http;
 
-namespace Appsistencia.Core.App_Start
+namespace Appsistencia.API.App_Start
 {
     public class AutofacWebApiConfig
     {

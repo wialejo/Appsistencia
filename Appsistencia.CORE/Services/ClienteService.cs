@@ -1,5 +1,5 @@
-﻿using Appsistencia.Core.Infraestructura;
-using Appsistencia.Core.Modelos;
+﻿using Appsistencia.API.Infraestructura;
+using Appsistencia.API.Modelos;
 using Appsistencia.CORE.Modelos;
 using Appsistencia.CORE.Repositorios;
 using Microsoft.AspNet.Identity;
@@ -53,8 +53,9 @@ namespace Appsistencia.CORE.Services
 
                 _clienteRepositorio.Edit(clienteRepo);
             }
+            cliente = clienteRepo;
             _unitOfWork.Commit();
-            return clienteRepo;
+            return cliente;
         }
 
         public List<Cliente> Obtener()

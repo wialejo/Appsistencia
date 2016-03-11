@@ -1,5 +1,5 @@
-﻿using Appsistencia.Core.Infraestructura;
-using Appsistencia.Core.Modelos;
+﻿using Appsistencia.API.Infraestructura;
+using Appsistencia.API.Modelos;
 using Appsistencia.CORE.Infraestructura;
 using Appsistencia.CORE.Modelos;
 using Appsistencia.CORE.Repositorios;
@@ -43,18 +43,26 @@ namespace Appsistencia.CORE.Services
                 servicioRepo.estadoCodigo = "RG";
                 servicioRepo.fecha = DateTime.Now;
                 servicioRepo.hora = DateTime.Now.TimeOfDay;
+                servicioRepo.tipoServicioCodigo = servicio.tipoServicioCodigo;
 
-                _clienteService.Guardar(servicio.cliente);
-                servicioRepo.clienteId = servicio.cliente.id;
 
                 _vehiculoService.Guardar(servicio.vehiculo);
                 servicioRepo.vehiculoId = servicio.vehiculo.id;
+                servicio.cliente.vehiculos.Add(servicio.vehiculo);
 
                 _direccionService.Guardar(servicio.direccionInicio);
                 servicioRepo.direccionInicioId = servicio.direccionInicio.id;
+                servicio.cliente.direcciones.Add(servicio.direccionInicio);
 
-                _direccionService.Guardar(servicio.direccionDestino);
-                servicioRepo.direccionDestinoId = servicio.direccionDestino.id;
+                if (servicio.direccionDestino != null)
+                {
+                    _direccionService.Guardar(servicio.direccionDestino);
+                    servicioRepo.direccionDestinoId = servicio.direccionDestino.id;
+                    servicio.cliente.direcciones.Add(servicio.direccionDestino);
+                }
+
+                _clienteService.Guardar(servicio.cliente);
+                servicioRepo.clienteId = servicio.cliente.id;
 
                 servicioRepo.fechaModificacion = DateTime.Now;
                 servicioRepo.fechaRegistro = DateTime.Now;
@@ -67,8 +75,8 @@ namespace Appsistencia.CORE.Services
             }
 
             _unitOfWork.Commit();
-
-            return servicioRepo;
+            servicio = servicioRepo;
+            return servicio;
         }
 
         public List<Servicio> Obtener()

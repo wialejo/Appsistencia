@@ -9,9 +9,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Appsistencia.Core.Modelos;
+using Appsistencia.API.Modelos;
 
-namespace Appsistencia.Core.Providers
+namespace Appsistencia.API.Providers
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {

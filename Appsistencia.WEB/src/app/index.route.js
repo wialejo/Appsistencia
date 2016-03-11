@@ -18,6 +18,10 @@
             url: '/solicitar',
             templateUrl: 'app/servicios/solicitar.html'
         })
+            .state('app.seguimiento', {
+                url: '/seguimiento',
+                templateUrl: 'app/servicios/seguimiento.html'
+            })
           .state('access', {
               url: '/access',
               template: '<div ui-view class="fade-in-right-big smooth"></div>'

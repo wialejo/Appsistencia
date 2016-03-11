@@ -13,11 +13,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Appsistencia.Core.Modelos;
-using Appsistencia.Core.Providers;
-using Appsistencia.Core.Results;
+using Appsistencia.API.Modelos;
+using Appsistencia.API.Providers;
+using Appsistencia.API.Results;
 
-namespace Appsistencia.Core.Controllers
+namespace Appsistencia.API.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

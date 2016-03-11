@@ -1,5 +1,5 @@
-﻿using Appsistencia.Core.Infraestructura;
-using Appsistencia.Core.Modelos;
+﻿using Appsistencia.API.Infraestructura;
+using Appsistencia.API.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

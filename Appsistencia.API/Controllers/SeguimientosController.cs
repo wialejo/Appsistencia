@@ -8,13 +8,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Appsistencia.Core.Modelos;
+using Appsistencia.API.Modelos;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Appsistencia.CORE.Services;
 using Appsistencia.CORE.Modelos;
 
-namespace Appsistencia.Core.Controllers
+namespace Appsistencia.API.Controllers
 {
     [Authorize]
     public class SeguimientosController : ApiController

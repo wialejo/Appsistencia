@@ -8,10 +8,10 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using Appsistencia.Core.Providers;
-using Appsistencia.Core.Modelos;
+using Appsistencia.API.Providers;
+using Appsistencia.API.Modelos;
 
-namespace Appsistencia.Core
+namespace Appsistencia.API
 {
     public partial class Startup
     {

@@ -125,6 +125,10 @@
     <Content Include="src\app\index.run.js" />
     <Content Include="src\app\main\main.controller.js" />
     <Content Include="src\app\main\main.html" />
+    <Content Include="src\app\servicios\estado.service.js" />
+    <Content Include="src\app\servicios\seguimiento.controller.js" />
+    <Content Include="src\app\servicios\seguimiento.html" />
+    <Content Include="src\app\servicios\seguimiento.service.js" />
     <Content Include="src\app\servicios\solicitar.html" />
     <Content Include="src\app\servicios\tipoServicio.service.js" />
     <Content Include="src\app\servicios\servicios.service.js" />

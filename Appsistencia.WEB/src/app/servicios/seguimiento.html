@@ -1,0 +1,64 @@
+﻿
+<div ng-controller="SeguimientoController as vm">
+    <h3>Seguimiento</h3>
+    <table class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <td colspan="10">
+                    <label><strong>Total servicios: </strong></label> {{ vm.serviciosActivos.length }}
+                    <span style="margin-left:30px" ng-repeat="(key,val) in vm.estadoServiciosActivos "><label><strong>{{key}}: </strong></label> {{ val }}</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <input type="text" class="form-control" ng-model="vm.filtro" placeholder="Buscar" />
+                </td>
+            </tr>
+            <tr>
+                <th class="text-center">Id</th>
+                <th>Tipo servicio</th>
+                <th>Hora/fecha</th>
+                <th>Estado</th>
+                <th>Cliente</th>
+                <th>Vehiculo</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Proveedor</th>
+                
+            </tr>
+        </thead>
+        <tbody class="text-xs" ng-repeat="servicio in vm.servicios | filter: vm.filtro">
+            <tr>
+                <td class="text-center">
+                    {{servicio.id}}
+                </td>
+                <td class="text-center">
+                    {{servicio.tipoServicio.descripcion}}
+                </td>
+                <td class="text-center">
+                    {{servicio.fecha | date:'HH:mm'}}
+                    <br />
+                    {{servicio.fecha | date:'dd/MM/yyyy'}}
+                </td>
+                <td>
+                    <strong>{{servicio.estado.descripcion}}</strong>
+                </td>
+                <td class="hidden-xs">
+                    {{servicio.cliente.nombre}}, {{servicio.cliente.telefono}}
+                </td>
+                <td class="hidden-xs">
+                    {{servicio.vehiculo.placa}}, {{servicio.vehiculo.marca}}, {{servicio.vehiculo.referencia}}
+                </td>
+                <td>
+                    -{{servicio.direccionInicio.descripcion}}, {{servicio.direccionInicio.ciudad}}, {{servicio.direccionInicio.barrio}}
+                </td>
+                <td>
+                    -{{servicio.direccionDestino.descripcion}}, {{servicio.direccionDestino.ciudad}}, {{servicio.direccionDestino.barrio}}
+                </td>
+                <td class="hidden-xs">
+                    {{servicio.proveedor.nombre}}, {{servicio.proveedor.telefono}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -9,7 +9,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
-namespace Appsistencia.Core.Modelos
+namespace Appsistencia.API.Modelos
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -4,11 +4,16 @@
             <span class="navbar-brand" href="#">TuAliado.com</span>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="app.solicitar"><span>Solicitar</span></a></li>
+                <li><a ui-sref="app.seguimiento"><span>Seguimiento</span></a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
+                
                 <li><strong>usuario: </strong> <span>{{ vm.authentication.userName }}</span></li>
                 <li><button class="btn btn-default" ng-click="vm.logOut()">Salir</button></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </nav>
 
     <div class="app-content">

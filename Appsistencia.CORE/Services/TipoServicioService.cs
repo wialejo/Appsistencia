@@ -1,5 +1,5 @@
-﻿using Appsistencia.Core.Infraestructura;
-using Appsistencia.Core.Modelos;
+﻿using Appsistencia.API.Infraestructura;
+using Appsistencia.API.Modelos;
 using Appsistencia.CORE.Modelos;
 using Appsistencia.CORE.Repositorios;
 using Microsoft.AspNet.Identity;

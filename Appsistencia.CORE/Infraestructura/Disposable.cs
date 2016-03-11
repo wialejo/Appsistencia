@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Appsistencia.Core.Infraestructura
+namespace Appsistencia.API.Infraestructura
 {
     public class Disposable : IDisposable
     {

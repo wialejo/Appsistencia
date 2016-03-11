@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Appsistencia.Core.Modelos;
+using Appsistencia.API.Modelos;
 using System.Diagnostics;
 using Appsistencia.CORE.Modelos;
 using Appsistencia.CORE.Infraestructura;
@@ -18,19 +18,19 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Web;
 
-namespace Appsistencia.Core.Controllers
+namespace Appsistencia.API.Controllers
 {
     [Authorize]
-    public class ServicioController : ApiController
+    public class ServiciosController : ApiController
     {
         private IServicioService _servicioService;
 
-        public ServicioController(IServicioService servicioService)
+        public ServiciosController(IServicioService servicioService)
         {
             _servicioService = servicioService;
         }
 
-        [HttpPost]
+        [HttpGet]
         public IHttpActionResult Obtener()
         {   
             var servicios = _servicioService.Obtener().ToList();

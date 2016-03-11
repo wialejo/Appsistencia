@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Appsistencia.Core.Modelos
+namespace Appsistencia.API.Modelos
 {
     // Models returned by AccountController actions.
 

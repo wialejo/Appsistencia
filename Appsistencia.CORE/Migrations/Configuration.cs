@@ -1,21 +1,21 @@
 namespace Appsistencia.API.Migrations.ApplicationDbContext
 {
-    using Core.Modelos;
+    using API.Modelos;
     using CORE.Modelos;
     using Microsoft.AspNet.Identity;
     using System;
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Appsistencia.Core.Modelos.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Appsistencia.API.Modelos.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            //AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationDataLossAllowed = true;
 
         }
 
-        protected override void Seed(Appsistencia.Core.Modelos.ApplicationDbContext context)
+        protected override void Seed(Appsistencia.API.Modelos.ApplicationDbContext context)
         {
             context.Users.AddOrUpdate(u => u.UserName,
                 new ApplicationUser

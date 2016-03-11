@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using System.Security.Principal;
-using Appsistencia.Core.Modelos;
+using Appsistencia.API.Modelos;
 
 namespace Appsistencia.CORE.Modelos
 {
@@ -16,6 +16,7 @@ namespace Appsistencia.CORE.Modelos
         [Key]
         public int id { get; set; }
 
+        [Required]
         public string tipoServicioCodigo { get; set; }
         public virtual TipoServicio tipoServicio { get; set; }
 
@@ -37,6 +38,7 @@ namespace Appsistencia.CORE.Modelos
 
 
         public int? direccionInicioId { get; set; }
+        [Required]
         public virtual Direccion direccionInicio { get; set; }
 
         public int? direccionDestinoId { get; set; }
@@ -54,7 +56,6 @@ namespace Appsistencia.CORE.Modelos
         public ICollection<Seguimiento> seguimientos { get; set; }
     }
 
-    [Table("Seguimientos")]
     public class Seguimiento
     {
         [Key]
@@ -89,10 +90,12 @@ namespace Appsistencia.CORE.Modelos
     {
         [Key]
         public int id { get; set; }
+        [Required]
         public string descripcion { get; set; }
         public string ciudad { get; set; }
         public string barrio { get; set; }
     }
+
     public class TipoServicio
     {
         [Key]
@@ -104,6 +107,8 @@ namespace Appsistencia.CORE.Modelos
         [Key]
         public int id { get; set; }
         public string nombre { get; set; }
+        public string telefono { get; set; }
+        public string telefono2 { get; set; }
         public string email { get; set; }
     }
 

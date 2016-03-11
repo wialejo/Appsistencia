@@ -1,4 +1,4 @@
-﻿using Appsistencia.Core.Infraestructura;
+﻿using Appsistencia.API.Infraestructura;
 using Appsistencia.CORE.Modelos;
 using Appsistencia.CORE.Repositorios;
 using System;
@@ -42,8 +42,8 @@ namespace Appsistencia.CORE.Services
                 _direccionRepositorio.Edit(direccionRepo);
             }
             _unitOfWork.Commit();
-
-            return direccionRepo;
+            direccion = direccionRepo;
+            return direccion;
         }
 
 

@@ -6,9 +6,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Appsistencia.Core.App_Start;
+using Appsistencia.API.App_Start;
 
-namespace Appsistencia.Core
+namespace Appsistencia.API
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

@@ -1,26 +1,16 @@
-<div class="container " ng-controller="LoginController as vm" >
-  
-  <div>
-    <div class="wrapper text-center">
-      <h2 >{{ main.app.name }}</h2>
-      <br>
-      <h3>Iniciar sesión</h3>
-    </div>
-    <form name="form" class="form form-validation" ng-submit="vm.login()" >
-      <div class="text-danger wrapper text-center" ng-show="vm.message">
-          {{vm.message}}
-      </div>
-      <div class="list-group list-group-sm">
-        <div class="list-group-item">
-          <input type="text" placeholder="Usuario" class="form-control no-border" ng-model="vm.loginData.userName" required>
+<div class="container" ng-controller="LoginController as vm">
+    <h2 class="form-signin-heading">Iniciar sesión en TuAliado.com</h2>
+    <form name="form" class="form form-validation" ng-submit="vm.login()">
+        <div class="list-group list-group-sm">
+            <div class="list-group-item">
+                <input type="text" placeholder="Usuario" class="form-control no-border" ng-model="vm.loginData.userName" required>
+            </div>
+            <div class="list-group-item">
+                <input type="password" placeholder="Contraseña" class="form-control no-border" ng-model="vm.loginData.password" required>
+            </div>
         </div>
-        <div class="list-group-item">
-           <input type="password" placeholder="Contraseña" class="form-control no-border" ng-model="vm.loginData.password" required>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-lg btn-primary btn-block" 
-              ng-disabled='form.$invalid'>Iniciar</button>
-      <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">¿Olvido su contraseña?</a></div>
+        <button type="submit" class="btn btn-primary btn-block" ng-disabled='form.$invalid'>Iniciar</button>
+        <div class="text-danger text-center" ng-show="vm.message">{{vm.message}}</div>
+        <div class="text-center"><a ui-sref="access.forgotpwd">¿Olvido su contraseña?</a></div>
     </form>
-  </div>
 </div>

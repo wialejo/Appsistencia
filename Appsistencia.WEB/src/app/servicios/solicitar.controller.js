@@ -7,8 +7,7 @@
           vm.servicio = {
               cliente: {},
               vehiculo: {},
-              direccionInicio: {},
-              direccionDestino: {}
+              direccionInicio: {}
           }
           vm.verFormularioDatosBasicos = false;
           vm.ObtenerTiposServicios = function () {
@@ -31,6 +30,8 @@
               vm.verFormularioDatosBasicos = true;
               vm.tipoServicioSeleccionado = tipoServicio;
               vm.servicio.tipoServicioCodigo = tipoServicio.codigo;
+              if (tipoServicio.codigo == "CE")
+                  vm.servicio.direccionDestino = {};
           }
           vm.seleccionarDireccionInicio = function (direccion, index) {
               vm.servicio.direccionInicio = direccion;

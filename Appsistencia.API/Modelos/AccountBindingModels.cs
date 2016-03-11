@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Appsistencia.Core.Modelos
+namespace Appsistencia.API.Modelos
 {
     // Models used as parameters to AccountController actions.
 
@@ -51,7 +51,10 @@ namespace Appsistencia.Core.Modelos
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        public string nombre { get; internal set; }
+
+        [Required]
+        [Display(Name = "Nombre")]
+        public string nombre { get; set; }
     }
 
     public class RegisterExternalBindingModel
