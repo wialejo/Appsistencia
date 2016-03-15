@@ -29,6 +29,16 @@ namespace Appsistencia.API.Migrations.ApplicationDbContext
 
                 });
 
+            context.Clientes.AddOrUpdate(new Cliente
+            {
+                nombre = "Pepito",
+                apellido = "Pelaz",
+                email = "pepito.pelaez@tualiado.com",
+                identificacion = "88888888",
+                telefono = "3156789012",
+                usuario = "admin"
+            });
+
             context.Estados.AddOrUpdate(
                 new Estado() { codigo = "RG", descripcion = "Registrado", orden = 1 },
                 new Estado() { codigo = "ES", descripcion = "En sitio", orden = 2 },
@@ -48,46 +58,13 @@ namespace Appsistencia.API.Migrations.ApplicationDbContext
                 new TipoServicio() { codigo = "CR", descripcion = "Cerrajero" }
             );
 
-            //context.Conductores.AddOrUpdate(
-            //    new Conductor()
-            //    {
-            //        Id = 1,
-            //        Nombre = "Javier conductor martinez",
-            //        Email = "wi_alejo@hotmail.com",
-            //        TipoIdentificacion = "CC",
-            //        Identificacion = 1018421359,
-            //        Telefono1 = "3112150087",
-            //        Direccion = "Cra 51 # 66a 22 Br San miguel",
-            //        Activo = true
-            //    });
-
-            //context.Asegurados.AddOrUpdate(
-            //    new Asegurado() { Id = 1, Nombre = "Asegurado 1" }
-            //);
-
-            //context.Cuentas.AddOrUpdate(new Cuenta
-            //{
-            //    Id = 1,
-            //    Descripcion = "ControlDrive",
-            //    CorreoSalida = "Notificaciones@controldrive.com.co",
-            //    NombreMostrar = "ControlDrive",
-            //    CorreoRespuesta = "Notificaciones@controldrive.com.co",
-            //    NombreServidor = "controldrive.com.co",
-            //    NombreServidorIMAP = "controldrive.com.co",
-            //    NombreServidorPOP = "controldrive.com.co",
-            //    NombreServidorSMPT = "controldrive.com.co",
-            //    Puerto = 25,
-            //    Ssl = false,
-            //    Usuario = "Notificaciones@controldrive.com.co",
-            //    Contrasena = "Loreka8812"
-            //});
 
             context.Cuentas.AddOrUpdate(new Cuenta
             {
                 Id = 1,
-                Descripcion = "ControlDrive",
+                Descripcion = "Appsistencia",
                 CorreoSalida = "arhcontroldrive@gmail.com",
-                NombreMostrar = "ARH - ControlDrive",
+                NombreMostrar = "ARH - Appsistencia",
                 CorreoRespuesta = "arhcontroldrive@gmail.com",
                 NombreServidor = "smtp.gmail.com",
                 NombreServidorIMAP = "smtp.gmail.com",
