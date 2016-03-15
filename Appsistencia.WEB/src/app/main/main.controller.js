@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, authService, $location) {
+  function MainController($timeout, toastr, authService, $location) {
     var vm = this;
     vm.authentication = authService.authentication;
 

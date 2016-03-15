@@ -106,17 +106,6 @@
     <Content Include="src\app\account\register.controller.js" />
     <Content Include="src\app\account\register.html" />
     <Content Include="src\app\account\tokensManagerService.js" />
-    <Content Include="src\app\components\githubContributor\githubContributor.service.js" />
-    <Content Include="src\app\components\githubContributor\githubContributor.service.spec.js" />
-    <Content Include="src\app\components\malarkey\malarkey.css" />
-    <Content Include="src\app\components\malarkey\malarkey.directive.js" />
-    <Content Include="src\app\components\malarkey\malarkey.directive.spec.js" />
-    <Content Include="src\app\components\navbar\navbar.css" />
-    <Content Include="src\app\components\navbar\navbar.directive.js" />
-    <Content Include="src\app\components\navbar\navbar.directive.spec.js" />
-    <Content Include="src\app\components\navbar\navbar.html" />
-    <Content Include="src\app\components\webDevTec\webDevTec.service.js" />
-    <Content Include="src\app\components\webDevTec\webDevTec.service.spec.js" />
     <Content Include="src\app\index.config.js" />
     <Content Include="src\app\index.constants.js" />
     <Content Include="src\app\index.css" />
@@ -133,7 +122,6 @@
     <Content Include="src\app\servicios\tipoServicio.service.js" />
     <Content Include="src\app\servicios\servicios.service.js" />
     <Content Include="src\app\servicios\solicitar.controller.js" />
-    <Content Include="src\app\utilidades\fecha.service.js" />
     <Content Include="src\assets\images\angular.png" />
     <Content Include="src\assets\images\bootstrap.png" />
     <Content Include="src\assets\images\browsersync.png" />
