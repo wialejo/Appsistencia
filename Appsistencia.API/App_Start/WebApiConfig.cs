@@ -37,7 +37,7 @@ namespace Appsistencia.API
         private static void EnableCrossSiteRequests(HttpConfiguration config)
         {
             var cors = new EnableCorsAttribute(
-                origins: "http://localhost:3000/",
+                origins: "*",
                 headers: "*",
                 methods: "*");
             config.EnableCors(cors);
