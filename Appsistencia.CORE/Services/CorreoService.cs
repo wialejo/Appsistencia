@@ -24,9 +24,20 @@ namespace Appsistencia.CORE.Services
             var SmtpClient = Smtp.IniciarSmtpClient(cuenta);
             Smtp.EnviarMensajesAClienteSMTP(correos, cuenta, SmtpClient);
         }
+        public void Enviar(Correo correo)
+        {
+            var cuenta = _cuentaRepositorio.GetAll().FirstOrDefault();
+            var SmtpClient = Smtp.IniciarSmtpClient(cuenta);
+            var correos = new List<Correo>();
+            correos.Add(correo);
+            Smtp.EnviarMensajesAClienteSMTP(correos, cuenta, SmtpClient);
+        }
+
     }
 
-    public interface ICorreoService {
+    public interface ICorreoService
+    {
         void Enviar(List<Correo> correos);
+        void Enviar(Correo correo);
     }
 }

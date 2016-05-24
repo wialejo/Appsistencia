@@ -20,7 +20,7 @@ namespace Appsistencia.API.Migrations.ApplicationDbContext
             context.Users.AddOrUpdate(u => u.UserName,
                 new ApplicationUser
                 {
-                    Nombre = "Admininstrador del sistema",
+                    nombre = "Admininstrador del sistema",
                     UserName = "admin",
                     Email = "wi_alejo@hotmail.com",
                     PasswordHash = new PasswordHasher().HashPassword("admin"),
@@ -40,31 +40,32 @@ namespace Appsistencia.API.Migrations.ApplicationDbContext
             });
 
             context.Estados.AddOrUpdate(
-                new Estado() { codigo = "RG", descripcion = "Registrado", orden = 1 },
-                new Estado() { codigo = "ES", descripcion = "En sitio", orden = 2 },
-                new Estado() { codigo = "EC", descripcion = "En curso", orden = 3 },
-                new Estado() { codigo = "TE", descripcion = "Terminado", orden = 4 },
-                new Estado() { codigo = "FL", descripcion = "Fallido", orden = 5 },
-                new Estado() { codigo = "CN", descripcion = "Cancelado", orden = 6 },
-                new Estado() { codigo = "AN", descripcion = "Anulado", orden = 7 },
-                new Estado() { codigo = "RE", descripcion = "Recibido", orden = 10 },
-                new Estado() { codigo = "EN", descripcion = "Enviado", orden = 9 }
+                new Estado() { codigo = "RG", descripcion = "Registrado", orden = 10 },
+                new Estado() { codigo = "ES", descripcion = "En sitio", orden = 20 },
+                new Estado() { codigo = "EC", descripcion = "En curso", orden = 30 },
+                new Estado() { codigo = "TE", descripcion = "Terminado", orden = 40 },
+                new Estado() { codigo = "FL", descripcion = "Fallido", orden = 50 },
+                new Estado() { codigo = "CN", descripcion = "Cancelado", orden = 60 },
+                new Estado() { codigo = "AN", descripcion = "Anulado", orden = 70 },
+                new Estado() { codigo = "EN", descripcion = "Enviado", orden = 90 },
+                new Estado() { codigo = "AS", descripcion = "Asignado", orden = 110 },
+                new Estado() { codigo = "RE", descripcion = "Recibido", orden = 10 }
             );
 
             context.TiposServicio.AddOrUpdate(
-                new TipoServicio() { codigo = "CE", descripcion = "Conductor elegido"},
-                new TipoServicio() { codigo = "GR", descripcion = "Grúa" },
-                new TipoServicio() { codigo = "CT", descripcion = "Carro taller" },
-                new TipoServicio() { codigo = "CR", descripcion = "Cerrajero" }
+                new TipoServicio() { codigo = "CE", descripcion = "Conductor elegido", iconoRuta= "assets/iconos_web/conductorElegido.svg" },
+                new TipoServicio() { codigo = "GR", descripcion = "Grúa", iconoRuta = "assets/iconos_web/grua.svg" },
+                new TipoServicio() { codigo = "CT", descripcion = "Carro taller", iconoRuta = "assets/iconos_web/taller.svg" },
+                new TipoServicio() { codigo = "CR", descripcion = "Cerrajero", iconoRuta = "assets/iconos_web/cerrajero.svg" }
             );
 
 
             context.Cuentas.AddOrUpdate(new Cuenta
             {
                 Id = 1,
-                Descripcion = "Appsistencia",
+                Descripcion = "TuAliado",
                 CorreoSalida = "arhcontroldrive@gmail.com",
-                NombreMostrar = "ARH - Appsistencia",
+                NombreMostrar = "TuAliado",
                 CorreoRespuesta = "arhcontroldrive@gmail.com",
                 NombreServidor = "smtp.gmail.com",
                 NombreServidorIMAP = "smtp.gmail.com",

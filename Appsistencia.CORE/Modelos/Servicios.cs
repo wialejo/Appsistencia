@@ -54,6 +54,10 @@ namespace Appsistencia.CORE.Modelos
         public virtual ApplicationUser usuarioModificacion { get; set; }
 
         public ICollection<Seguimiento> seguimientos { get; set; }
+
+        public ICollection<Correo> correos { get; set; }
+
+        public int tiempoEstimado { get; internal set; }
     }
 
     public class Seguimiento
@@ -81,9 +85,7 @@ namespace Appsistencia.CORE.Modelos
         [Key]
         public int id { get; set; }
         public string placa { get; set; }
-        public string marca { get; set; }
-        public string referencia { get; set; }
-        public string observaciones { get; set; }
+        public string descripcion { get; set; }
     }
 
     public class Direccion
@@ -101,6 +103,7 @@ namespace Appsistencia.CORE.Modelos
         [Key]
         public string codigo { get; set; }
         public string descripcion { get; set; }
+        public string iconoRuta { get; set; }
     }
 
     public class Proveedor {

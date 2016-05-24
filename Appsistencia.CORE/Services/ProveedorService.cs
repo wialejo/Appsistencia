@@ -52,9 +52,11 @@ namespace Appsistencia.CORE.Services
             return proveedors;
         }
 
-        public List<Proveedor> ObtenerPorDescripcion(string descripcion)
+        public List<Proveedor> ObtenerPorDescripcion(string descripcion, int top)
         {
-            var proveedors = _proveedorRepositorio.FindBy(p => p.nombre.ToLower().Contains(descripcion.ToLower())).ToList();
+            var proveedors = _proveedorRepositorio.FindBy(p => p.nombre.ToLower().Contains(descripcion.ToLower()))
+                                .Take(top)
+                                .ToList();
             return proveedors;
         }
        
@@ -67,7 +69,7 @@ namespace Appsistencia.CORE.Services
     public interface IProveedorService
     {
         Proveedor ObtenerPorId(int id);
-        List<Proveedor> ObtenerPorDescripcion(string descripcion);
+        List<Proveedor> ObtenerPorDescripcion(string descripcion, int top);
         List<Proveedor> Obtener();
         Proveedor Guardar(Proveedor proveedor);
     }

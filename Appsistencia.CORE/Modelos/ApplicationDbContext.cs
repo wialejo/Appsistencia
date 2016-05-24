@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 
@@ -27,7 +28,29 @@ namespace Appsistencia.API.Modelos
 
         public virtual void Commit()
         {
-            base.SaveChanges();
+            try
+            {
+                // Your code...
+                // Could also be before try if you know the exception occurs in SaveChanges
+
+                base.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                string error = string.Empty;
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    
+                    string.Format(error, "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        error += string.Format("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw new Exception(error);
+            }
         }
 
         public static ApplicationDbContext Create()

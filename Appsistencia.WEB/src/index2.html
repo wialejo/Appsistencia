@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="reset.css" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            padding-top: 70px;
+        }
+
+        .logo {
+            height: 10px;
+        }
+        .contenedor {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+        }
+        .mapa {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-color: red;
+            background-image: url('assets/images/mapa.png');
+        }
+        .formulario {
+            top:20px;
+            right:20px;
+            position:absolute;
+            width:300px;
+            background-color:#ffffff;
+            padding:20px;
+            box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important
+        }
+        .servicio-tipo-seleccion {
+            background-color:white;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        .circulo{
+            border-radius:50%;
+            position:absolute;
+        }
+        .circulo-base {
+            border:2px solid red;
+            right:50%;
+            height: 500px;
+            width: 500px;
+        }
+        .circulo-externo {
+            border: 2px solid blue;
+            height: 100px;
+            background-size:contain;
+        }
+        .circulo-1 {
+            top: 0px;
+            left: 0px;
+        }
+        .circulo-2 {
+            top: 0px;
+            right: 0px;
+        }
+        .circulo-3 {
+            right:0px;
+            bottom:0px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <h2>Tu Aliado <small> La solución mas segura y confiable</small></h2>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <img class="logo" src="assets/images/LogoFinal01.png" />
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+        <div class="contenedor">
+
+            <div class="circulo circulo-base">
+                <div class="circulo circulo-externo circulo-1">
+                    <div class="thumbnail">
+                        <img src="assets/images/condutor.png" />
+                        <div class="caption">
+                            <h3>Conductor elegido</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="circulo circulo-externo circulo-2"></div>
+                <div class="circulo circulo-externo circulo-3"></div>
+            </div>
+
+            <!--<div class="mapa">
+
+            </div>
+            <div class="formulario">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">¿Donde estas?</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Dirección">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Dirección">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Teléfono</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Dirección">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Vehiculo</label>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Placa">
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Vehiculo">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Solicitar</button>
+                </form>
+            </div>
+            <div class="servicio-tipo-seleccion">
+                <h3>Escoge el servicio que necesitas.</h3>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="assets/images/condutor.png" />
+                            <div class="caption">
+                                <h3>Conductor elegido</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="assets/images/taller.png" />
+                            <div class="caption">
+                                <h3>Carro taller</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="assets/images/cerrajero.png" />
+                            <div class="caption">
+                                <h3>Cerrajero</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="assets/images/grua.png" />
+                            <div class="caption">
+                                <h3>Grua</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</body>
+</html>

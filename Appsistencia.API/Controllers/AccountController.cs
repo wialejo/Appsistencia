@@ -328,7 +328,7 @@ namespace Appsistencia.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.userName, Email = model.Email, Nombre = model.nombre };
+            var user = new ApplicationUser() { UserName = model.userName, Email = model.Email, nombre = model.nombre };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

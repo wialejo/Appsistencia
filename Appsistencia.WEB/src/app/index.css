@@ -4,14 +4,88 @@
   color: #000;
   padding: 0.2em 0;
 }
-
+.tipo-servicio {
+    width:300px;
+}
 .thumbnail {
-  height: 200px;
+  border-radius:50%;
+  background-color:rgba(61, 61, 61, 0.17);
+  border: none;
+  /*color:lightgray;*/
+}
+    .thumbnail img {
+        width:150px;
+        height:150px;
+    }
+.text-claro {
+    color:#ddd;
+}
+.absolute-full {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.app {
+    background-image: url('../assets/FondoPantallaComputador-01.svg');
+}
+.navbar {
+    margin:0;
+    background-color:transparent;
+    color:lightgray;
+    border:none;
+}
+.navbar-right {
+    margin-right:0 !important;
 }
 
-.thumbnail img.pull-right {
-  width: 50px;
+.header-logo {
+    height: 60px;
+    margin-left:20px;
 }
-.tipoAsistencia{
-	font-size: 50px;
+.confirmacion-form {
+    color:#141313;
+    background-color:white;
+    padding:10px;
+    position:relative;
+    width:100%;
+}
+html, body {
+   	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+.confirmacion-mapa {
+    position:absolute;
+    top:68px;
+    left:0;
+    right:0;
+    bottom:0;
+    /*background-image: url('../assets/images/mapa.png');*/
+}
+.angular-google-map {
+    height:100%;
+}
+.servicio-estado-mensaje {
+    padding:20px;
+    color:lightgray;
+}
+.seguimiento {
+    background-color:white;
+}
+.angular-google-map-container { 
+    height:100%;
+
+}
+@media (min-width: 768px) { 
+
+    .confirmacion-form {
+        top:10px;
+        left:10px;
+        width:350px;
+    }
 }

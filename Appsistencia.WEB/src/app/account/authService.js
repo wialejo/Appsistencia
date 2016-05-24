@@ -41,9 +41,7 @@
                 var deferred = $q.defer();
 
                 $http.post(serviceBase + 'token', 
-                    data, 
-                    { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, 
-                    'Access-Control-Allow-Credentials' : true }
+                    data
                     ).success(function (response) {
 
 

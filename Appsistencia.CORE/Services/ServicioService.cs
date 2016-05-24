@@ -25,11 +25,13 @@ namespace Appsistencia.CORE.Services
         private readonly IVehiculoService _vehiculoService;
         private readonly IDireccionService _direccionService;
 
-        public ServicioService(IEntityBaseRepository<Servicio> servicioRepositorio, IDireccionService direccionService, IVehiculoService vehiculoService, IClienteService clienteService, IUnitOfWork unitOfWork)
+        public ServicioService(IEntityBaseRepository<Servicio> servicioRepositorio, ICorreoService correoService, IDireccionService direccionService, IVehiculoService vehiculoService, IClienteService clienteService, IUnitOfWork unitOfWork)
         {
             _servicioRepositorio = servicioRepositorio;
             _unitOfWork = unitOfWork;
             _clienteService = clienteService;
+
+            _correoService = correoService;
             _vehiculoService = vehiculoService;
             _direccionService = direccionService;
         }
@@ -101,9 +103,44 @@ namespace Appsistencia.CORE.Services
             throw new NotImplementedException();
         }
 
+
+        public void AsignarProveedor(int servicioId, int proveedorId, int tiempoEstimado)
+        {
+            var servicioRepo = new Servicio();
+            servicioRepo = _servicioRepositorio.FindBy(s => s.id == servicioId).FirstOrDefault();
+            if (servicioRepo.direccionInicio == null)
+            {
+                throw new Exception(servicioRepo.direccionInicioId.ToString());
+            }
+            servicioRepo.proveedorId = proveedorId;
+            servicioRepo.tiempoEstimado = tiempoEstimado;
+            servicioRepo.estadoCodigo = "AS";
+            _servicioRepositorio.Edit(servicioRepo);
+            _unitOfWork.Commit();
+            NotificarServicioAsignadoACliente(servicioRepo);
+        }
+
+        private void NotificarServicioAsignadoACliente(Servicio servicio)
+        {
+            
+            string mensaje = "<p>El proveedor: " + servicio.proveedor.nombre + " se asigno</p>";
+            var destinatarios = string.Format("\"{0}\"<{1}>;", servicio.cliente.nombre, servicio.cliente.email);
+            var correo = new Correo()
+            {
+                CORdestinatarios = destinatarios,
+                CORasunto = "TuAliado te asigno un proveedor",
+                CORmensajeHTML = mensaje
+            };
+            _correoService.Enviar(correo);
+        }
+
         public void CambioEstado(int idServicio, Estado nuevoEstado)
         {
             var servicioRepo = _servicioRepositorio.FindBy(s => s.id == idServicio).FirstOrDefault();
+            if (servicioRepo.direccionInicio == null)
+            {
+                throw new Exception(servicioRepo.direccionInicioId.ToString());
+            }
             servicioRepo.estadoCodigo = nuevoEstado.codigo;
             _servicioRepositorio.Edit(servicioRepo);
             _unitOfWork.Commit();
@@ -117,6 +154,7 @@ namespace Appsistencia.CORE.Services
         Servicio ObtenerPorId(int id);
         Servicio Guardar(Servicio servicio);
         void CambioEstado(int idServicio, Estado nuevoEstado);
+        void AsignarProveedor(int servicioId, int proveedorId, int tiempoEstimado);
     }
 
     public class ServicioResumen

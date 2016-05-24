@@ -14,7 +14,6 @@ using Appsistencia.CORE.Modelos;
 
 namespace Appsistencia.API.Controllers
 {
-    [Authorize]
     public class ProveedoresController : ApiController
     {
         private readonly IProveedorService _proveeedorService;
@@ -24,12 +23,12 @@ namespace Appsistencia.API.Controllers
 
         }
 
-        [HttpGet]
-        public IHttpActionResult Obtener()
-        {
-            var proveeedores = _proveeedorService.Obtener();
-            return Ok(proveeedores);
-        }
+        //[HttpGet]
+        //public IHttpActionResult Obtener()
+        //{
+        //    var proveeedores = _proveeedorService.Obtener();
+        //    return Ok(proveeedores);
+        //}
 
         [HttpPost]
         public IHttpActionResult Guardar(Proveedor proveedor)
@@ -39,9 +38,10 @@ namespace Appsistencia.API.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult ObtenerPorDescripcion(string id)
+        [Route("api/Proveedores")]
+        public IHttpActionResult Obtener([FromUri]int top, [FromUri] string descripcion)
         {
-            var proveeedor = _proveeedorService.ObtenerPorDescripcion(id);
+            var proveeedor = _proveeedorService.ObtenerPorDescripcion(descripcion, top);
             return Ok(proveeedor);
         }
     }

@@ -1,21 +1,30 @@
-<div class="container"  ng-controller="MainController as vm">
+﻿<div ng-controller="MainController as vm">
     <nav class="navbar navbar-default" ng-show="vm.authentication.isAuth">
-        <div class="navbar-header">
-            <span class="navbar-brand" href="#">TuAliado.com</span>
+        <ul class="nav navbar-nav">
+            <li>
+                <img class="header-logo" src="assets/LogoFinal-01.svg" />
+            </li>
+        </ul>
+        <div class="nav navbar-nav navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <h3>La solución mas segura y confiable</h3>
+                </li>
+            </ul>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <!--<div class="nav navbar-nav navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a ui-sref="app.solicitar"><span>Solicitar</span></a></li>
-                <li><a ui-sref="app.seguimiento"><span>Seguimiento</span></a></li>
+                <li><a ui-sref="app.seguimiento"><span>seguimiento</span></a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                
-                <li><strong>usuario: </strong> <span>{{ vm.authentication.userName }}</span></li>
-                <li><button class="btn btn-default" ng-click="vm.logOut()">Salir</button></li>
-            </ul>
+        </div>-->
+        <div class="nav navbar-nav navbar-collapse collapse navbar-right">
+            <p class="navbar-text">
+                <span class='glyphicon glyphicon-user'></span>
+                <strong>usuario: </strong> <span>{{ vm.authentication.userName }} </span>
+            </p>
+            <input type="button" class="btn btn-default navbar-btn" ng-click="vm.logOut()" value="salir" />
         </div>
     </nav>
-
     <div class="app-content">
         <div ui-view>
         </div>

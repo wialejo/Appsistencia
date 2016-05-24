@@ -76,7 +76,9 @@
     <Content Include="package.json" />
     <Content Include="gulp\.eslintrc" />
     <Content Include="e2e\.eslintrc" />
+    <Content Include="src\app\account\login.css" />
     <Content Include="src\app\cliente\cliente.service.js" />
+    <Content Include="src\app\servicios\solicitud\geoLocation.service.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,25 +117,42 @@
     <Content Include="src\app\main\main.controller.js" />
     <Content Include="src\app\main\main.html" />
     <Content Include="src\app\servicios\estado.service.js" />
-    <Content Include="src\app\servicios\seguimiento.controller.js" />
-    <Content Include="src\app\servicios\seguimiento.html" />
-    <Content Include="src\app\servicios\seguimiento.service.js" />
-    <Content Include="src\app\servicios\solicitar.html" />
+    <Content Include="src\app\servicios\proveedor.service.js" />
+    <Content Include="src\app\servicios\seguimiento\seguimiento.controller.js" />
+    <Content Include="src\app\servicios\seguimiento\seguimiento.html" />
+    <Content Include="src\app\servicios\seguimiento\seguimiento.service.js" />
+    <Content Include="src\app\servicios\solicitud\confirmar.controller.js" />
+    <Content Include="src\app\servicios\solicitud\estado.html" />
+    <Content Include="src\app\servicios\solicitud\confirmar.html" />
+    <Content Include="src\app\servicios\solicitud\estado.controller.js" />
+    <Content Include="src\app\servicios\solicitud\seleccionarTipo.html" />
     <Content Include="src\app\servicios\tipoServicio.service.js" />
     <Content Include="src\app\servicios\servicios.service.js" />
-    <Content Include="src\app\servicios\solicitar.controller.js" />
-    <Content Include="src\assets\images\angular.png" />
-    <Content Include="src\assets\images\bootstrap.png" />
-    <Content Include="src\assets\images\browsersync.png" />
-    <Content Include="src\assets\images\gulp.png" />
-    <Content Include="src\assets\images\jade.png" />
-    <Content Include="src\assets\images\jasmine.png" />
-    <Content Include="src\assets\images\karma.png" />
-    <Content Include="src\assets\images\protractor.png" />
-    <Content Include="src\assets\images\ui-bootstrap.png" />
-    <Content Include="src\assets\images\yeoman.png" />
+    <Content Include="src\app\servicios\solicitud\seleccionarTipo.controller.js" />
+    <Content Include="src\assets\FondoCelHorizontal-01.svg" />
+    <Content Include="src\assets\FondoCelVertical-01.svg" />
+    <Content Include="src\assets\FondoIpadHorizontal -01.svg" />
+    <Content Include="src\assets\FondoIpadVertical-01.svg" />
+    <Content Include="src\assets\FondoPantallaComputador-01.svg" />
+    <Content Include="src\assets\Iconos_web\grua.svg" />
+    <Content Include="src\assets\Iconos_web\taller.svg" />
+    <Content Include="src\assets\Iconos_web\conductorElegido.svg" />
+    <Content Include="src\assets\Iconos_web\cerrajero.svg" />
+    <Content Include="src\assets\Iconos_web\grua2.svg" />
+    <Content Include="src\assets\Iconos_web\taller2.svg" />
+    <Content Include="src\assets\Iconos_web\conductor2.svg" />
+    <Content Include="src\assets\Iconos_web\cerrajero2.svg" />
+    <Content Include="src\assets\images\cerrajero.png" />
+    <Content Include="src\assets\images\city.jpg" />
+    <Content Include="src\assets\images\condutor.png" />
+    <Content Include="src\assets\images\grua.png" />
+    <Content Include="src\assets\images\LogoFinal01.png" />
+    <Content Include="src\assets\images\taller.png" />
+    <Content Include="src\assets\LogoFinal-01.svg" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
+    <Content Include="src\index2.html" />
+    <Content Include="src\assets\images\mapa.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -84,6 +84,10 @@ namespace Appsistencia.API.App_Start
                 .As<IClienteService>()
                 .InstancePerRequest();
 
+            builder.RegisterType<ProveedorService>()
+                .As<IProveedorService>()
+                .InstancePerRequest();
+
             Container = builder.Build();
 
             return Container;

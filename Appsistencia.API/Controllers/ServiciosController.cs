@@ -55,5 +55,12 @@ namespace Appsistencia.API.Controllers
 
             return Ok(servicioModeloVista);
         }
+
+        [HttpPost]
+        [Route("api/Servicios/{servicioId}/proveedor/{proveedorId}/tiempoEstimado/{tiempoEstimado}")]
+        public IHttpActionResult AsignarProveedor([FromUri]int servicioId, [FromUri]int proveedorId, [FromUri]int tiempoEstimado) {
+            _servicioService.AsignarProveedor(servicioId, proveedorId, tiempoEstimado);
+            return Ok();
+        }
     }
 }

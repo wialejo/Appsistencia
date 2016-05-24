@@ -1,0 +1,138 @@
+﻿
+<div class="seguimiento" ng-controller="SeguimientoController as vm">
+    <h3>Seguimiento</h3>
+    <table class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <td colspan="10">
+                    <label><strong>Total servicios: </strong></label> {{ vm.serviciosActivos.length }}
+                    <span style="margin-left:30px" ng-repeat="(key,val) in vm.estadoServiciosActivos "><label><strong>{{key}}: </strong></label> {{ val }}</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <input type="text" class="form-control" ng-model="vm.filtro" placeholder="Buscar" />
+                </td>
+            </tr>
+            <tr>
+                <th class="text-center">Id</th>
+                <th>Tipo servicio</th>
+                <th>Hora/fecha</th>
+                <th>Estado</th>
+                <th>Cliente</th>
+                <th>Vehiculo</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Proveedor</th>
+                
+            </tr>
+        </thead>
+        <tbody class="text-xs" ng-repeat="servicio in vm.servicios | filter: vm.filtro">
+            <tr>
+                <td class="text-center">
+                    {{servicio.id}}
+                </td>
+                <td class="text-center">
+                    {{servicio.tipoServicio.descripcion}}
+                </td>
+                <td class="text-center">
+                    {{servicio.fecha | date:'HH:mm'}}
+                    <br />
+                    {{servicio.fecha | date:'dd/MM/yyyy'}}
+                </td>
+                <td>
+                    <strong>{{servicio.estado.descripcion}}</strong>
+                </td>
+                <td class="hidden-xs">
+                    {{servicio.cliente.nombre}}, {{servicio.cliente.telefono}}
+                </td>
+                <td class="hidden-xs">
+                    {{servicio.vehiculo.placa}}, {{servicio.vehiculo.marca}}, {{servicio.vehiculo.referencia}}
+                </td>
+                <td>
+                    -{{servicio.direccionInicio.descripcion}}, {{servicio.direccionInicio.ciudad}}, {{servicio.direccionInicio.barrio}}
+                </td>
+                <td>
+                    -{{servicio.direccionDestino.descripcion}}, {{servicio.direccionDestino.ciudad}}, {{servicio.direccionDestino.barrio}}
+                </td>
+                <td class="hidden-xs">
+                    <input type="button" ng-if="!servicio.proveedor" class="btn btn-default btn-sm" value="Asignar Proveedor" ng-click="vm.AsignarProveedor(servicio)" />
+                    <a class="btn btn-link" ng-click="vm.AsignarProveedor(servicio)" >
+                        {{servicio.proveedor.nombre}}, {{servicio.proveedor.telefono}}
+                        <br />
+                        <bold>Tiempo estimado: </bold> {{servicio.tiempoEstimado}}
+                    </a>
+                </td>
+                <td>
+                    <input type="button" class="btn btn-default btn-sm" value="Seguimiento" ng-click="vm.Seguimiento(servicio)" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script type="text/ng-template" id="AsignarProveedor.html">
+        <div class="modal-body wrapper-lg ">
+            <a class="close" data-dismiss="modal" ng-click="vmm.cancel()">×</a>
+            <h3 class="m-t-none m-b font-thin">Servicio: {{vmm.servicio.Id}}</h3>
+
+            <form class="form" ng-submit="vmm.AsignarProveedor()">
+                <div class="form-group">
+                    <label for="">Proveedor</label>
+                    <ui-select ng-model="vmm.servicio.proveedor" theme="bootstrap" reset-search-input="false">
+                        <ui-select-match placeholder="Proveedor">{{$select.selected.nombre}}</ui-select-match>
+                        <ui-select-choices repeat="item in vmm.proveedores" refresh="vmm.ObtenerProveedores($select.search)" refresh-delay="0">
+                            <div ng-bind-html="item.nombre | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class="form-group">
+                    <label for="txtTiempo">tiempo estimado (minutos)</label>
+                    <input requerid ng-model="vmm.servicio.tiempoEstimado" type="number" class="form-control" id="txtTiempo">
+                </div>
+                <input type="submit" class="btn btn-default pull-right" name="asignar" value="Asignar" />
+            </form>
+
+            <input type="button" class="btn btn-danger pull-right" name="EditarServicio" value="Editar" ng-click="Editar(servicio)" />
+        </div>
+    </script>
+    <script type="text/ng-template" id="seguimiento.html">
+        <div class="modal-body wrapper-lg ">
+            <a class="close" data-dismiss="modal" ng-click="vmm.cancel()">×</a>
+            <h3 class="m-t-none m-b font-thin">Seguimiento: {{vmm.servicio.Id}}</h3>
+
+
+            <div class="panel panel-default  border-none">
+                <ul class="list-group list-group-xs">
+                    <li class="list-group-item border-none">
+                        <div class="row">
+                            <form name="formSeguimiento" class="form ng-pristine ng-valid" ng-submit="vmm.GuardarSeguimiento()">
+                                <div class="col-xs-3 form-group">
+                                    <select ng-model="vmm.servicio.estadoCodigo" name="estado" ng-options="estado.codigo as estado.descripcion for estado in vmm.estados" class="form-control"></select>
+                                </div>
+                                <div class="col-xs-7 form-group">
+                                    <input type="text" ng-model="vmm.seguimiento.observacion" class="form-control" placeholder="Ingrese su observación" />
+                                </div>
+                                <div class="col-md-2 col-xs-12">
+                                    <button ng-disabled="isSaving" class="btn btn-info" type="submit">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li ng-repeat="seguimiento in vmm.servicio.seguimientos | orderBy:'-Fecha'"
+                        class="list-group-item border-none">
+                        <div class="pull-right text-sm text-muted">
+                            <span class="hidden-xs">{{ seguimiento.fecha | date:'HH:mm yyyy/MM/dd' }}</span>
+                        </div>
+                        <div class="clear">
+                            <div>
+                                <strong class="text-xs">{{seguimiento.usuarioRegistro.nombre}}</strong>
+                            </div>
+                            <div class="text-xs text-ellipsis m-t-xs">{{seguimiento.observacion}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </script>
+</div>

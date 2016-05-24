@@ -1,14 +1,8 @@
 <div class="container" ng-controller="LoginController as vm">
-    <h2 class="form-signin-heading">Iniciar sesión en TuAliado.com</h2>
-    <form name="form" class="form form-validation" ng-submit="vm.login()">
-        <div class="list-group list-group-sm">
-            <div class="list-group-item">
-                <input type="text" placeholder="Usuario" class="form-control no-border" ng-model="vm.loginData.userName" required>
-            </div>
-            <div class="list-group-item">
-                <input type="password" placeholder="Contraseña" class="form-control no-border" ng-model="vm.loginData.password" required>
-            </div>
-        </div>
+    <form name="form-signin" class="form-signin form-validation" ng-submit="vm.login()">
+        <img src="assets/LogoFinal-01.svg" class="login-logo" />
+        <input type="text" placeholder="Usuario" class="form-control no-border" ng-model="vm.loginData.userName" required>
+        <input type="password" placeholder="Contraseña" class="form-control no-border" ng-model="vm.loginData.password" required>
         <button type="submit" class="btn btn-primary btn-block" ng-disabled='form.$invalid'>Iniciar</button>
         <div class="text-danger text-center" ng-show="vm.message">{{vm.message}}</div>
         <div class="text-center"><a ui-sref="access.forgotpwd">¿Olvido su contraseña?</a></div>

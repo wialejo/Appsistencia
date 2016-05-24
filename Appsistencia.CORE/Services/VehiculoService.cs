@@ -59,9 +59,7 @@ namespace Appsistencia.CORE.Services
             {
                 vehiculoRepo = _vehiculoRepositorio.FindBy(c => c.id == vehiculo.id).FirstOrDefault();
                 vehiculoRepo.placa = vehiculo.placa;
-                vehiculoRepo.marca = vehiculo.marca;
-                vehiculoRepo.observaciones = vehiculo.observaciones;
-                vehiculoRepo.referencia = vehiculo.referencia;
+                vehiculoRepo.descripcion = vehiculo.descripcion;
                 _vehiculoRepositorio.Edit(vehiculoRepo);
             }
             _unitOfWork.Commit();

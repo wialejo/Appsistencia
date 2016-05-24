@@ -233,6 +233,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\CR.pubxml" />
+    <None Include="Properties\PublishProfiles\jupiter.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

@@ -19,5 +19,8 @@ namespace Appsistencia.CORE.Modelos
         public string CORdestinatarios { get; set; }
 
         public string CORmensajeHTML { get; set; }
+
+        public int ServicioId { get; set; }
+        public Servicio servicio { get; set; }
     }
 }
